@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Generations of Computers — Cosmic Hologram Edition</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(circle at 20% 20%, #070016, #000011 70%);
+        overflow-x: hidden;
+        color: #fff;
+    }
+.teleportation {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(90deg, #ff47ff, #9f8bff, #00eaff);
+  color: white;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #ff47ff, 0 0 10px #00eaff;
+  z-index: 1000;
+  text-align: center;
+}
+
+.teleportation a {
+  color: white;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.teleportation a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.teleportation a:hover {
+  color: #02328a;
+}
+
+.teleportation a:hover::after {
+  width: 100%;     
+}
+
+    canvas#nebula {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -2;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 3rem;
+        margin: 40px 0;
+        background: linear-gradient(90deg, #ff47ff, #9f8bff, #00eaff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 0 40px rgba(255,255,255,0.4);
+        letter-spacing: 4px;
+    }
+
+    .carousel {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 40px;
+        overflow-x: auto;
+        padding: 49px 40px 40px;
+        margin-bottom: 80px;
+        scroll-behavior: smooth;
+    }
+
+    .carousel::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card {
+        flex: 0 0 auto;
+        width: 300px;
+        padding: 25px;
+        background: rgba(255,255,255,0.08);
+        border: 2px solid rgba(255,255,255,0.15);
+        border-radius: 20px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 0 30px rgba(160, 0, 255, 0.3);
+        transform: perspective(800px) rotateX(0deg) rotateY(0deg) scale(1);
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0 0 40px rgba(200, 0, 255, 0.6);
+    }
+
+    .gen-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        background: linear-gradient(90deg, #ff4fff, #8ba8ff, #00ffe1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .feature {
+        margin: 10px 0;
+        padding: 10px 15px;
+        background: rgba(255,255,255,0.12);
+        border-radius: 12px;
+        font-size: 0.95rem;
+        line-height: 1.4rem;
+        border-left: 4px solid #b35bff;
+        transition: 0.3s;
+    }
+
+    .feature:hover {
+        background: rgba(255,255,255,0.25);
+        transform: translateX(5px) scale(1.02);
+        box-shadow: 0 0 20px rgba(255,0,255,0.4);
+    }
+
+    .orb {
+        position: fixed;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,0,255,0.5), transparent);
+        filter: blur(30px);
+        pointer-events: none;
+        z-index: -1;
+    }
+</style>
+</head>
+<body>
+<canvas id="nebula"></canvas>
+
+<!-- Floating neon orbs -->
+<div class="orb" style="top: 20%; left: 15%;"></div>
+<div class="orb" style="top: 70%; left: 60%;"></div>
+<div class="orb" style="top: 40%; left: 80%;"></div>
+
+<h1>Generations of Computers</h1>
+
+<div class="carousel" id="carousel">
+    <!-- First Generation -->
+    <div class="card">
+        <div class="gen-title">First Generation</div>
+        <div class="feature"><b>Electronic Device:</b> Vacuum Tubes</div>
+        <div class="feature"><b>Speed:</b> Millisecond</div>
+        <div class="feature"><b>Primary Memory:</b> Magnetic Core Memory</div>
+        <div class="feature"><b>Secondary Memory:</b> Punched Cards, Paper Tape</div>
+        <div class="feature"><b>Language:</b> Machine Level</div>
+        <div class="feature"><b>Cost:</b> Very High ($2.5M)</div>
+        <div class="feature"><b>Heat & Power:</b> Very High</div>
+        <div class="feature"><b>Capability:</b> Very Less</div>
+        <div class="feature"><b>Examples:</b> UNIAC, ENIAC, EDSAC</div>
+    </div>
+
+    <!-- Second Generation -->
+    <div class="card">
+        <div class="gen-title">Second Generation</div>
+        <div class="feature"><b>Electronic Device:</b> Transistors</div>
+        <div class="feature"><b>Speed:</b> Microsecond</div>
+        <div class="feature"><b>Primary Memory:</b> Magnetic Core Memory</div>
+        <div class="feature"><b>Secondary Memory:</b> Magnetic Tape, Drum</div>
+        <div class="feature"><b>Language:</b> Assembly + High Level</div>
+        <div class="feature"><b>Cost:</b> High ($250k)</div>
+        <div class="feature"><b>Heat & Power:</b> High</div>
+        <div class="feature"><b>Capability:</b> Less</div>
+        <div class="feature"><b>Examples:</b> IBM 1401, CDC 1604</div>
+    </div>
+
+    <!-- Third Generation -->
+    <div class="card">
+        <div class="gen-title">Third Generation</div>
+        <div class="feature"><b>Electronic Device:</b> IC</div>
+        <div class="feature"><b>Speed:</b> Nanosecond</div>
+        <div class="feature"><b>Primary Memory:</b> Semiconductor Memory</div>
+        <div class="feature"><b>Secondary Memory:</b> Magnetic Disk + Tape</div>
+        <div class="feature"><b>Language:</b> High Level</div>
+        <div class="feature"><b>Cost:</b> High ($25k)</div>
+        <div class="feature"><b>Heat & Power:</b> Low</div>
+        <div class="feature"><b>Capability:</b> Moderate</div>
+        <div class="feature"><b>Examples:</b> IBM 360, IBM 370</div>
+    </div>
+
+    <!-- Fourth Generation -->
+    <div class="card">
+        <div class="gen-title">Fourth Generation</div>
+        <div class="feature"><b>Electronic Device:</b> Microprocessor</div>
+        <div class="feature"><b>Speed:</b> Picosecond</div>
+        <div class="feature"><b>Primary Memory:</b> Semiconductor Memory</div>
+        <div class="feature"><b>Secondary Memory:</b> Magnetic + Optical Disks</div>
+        <div class="feature"><b>Language:</b> 4GL + High Level</div>
+        <div class="feature"><b>Cost:</b> Low ($2.5k)</div>
+        <div class="feature"><b>Heat & Power:</b> Very Low</div>
+        <div class="feature"><b>Capability:</b> High</div>
+        <div class="feature"><b>Examples:</b> IBM PC, Apple Macintosh</div>
+    </div>
+
+    <!-- Fifth Generation -->
+    <div class="card">
+        <div class="gen-title">Fifth Generation</div>
+        <div class="feature"><b>Electronic Device:</b> Bio-Chips</div>
+        <div class="feature"><b>Speed:</b> LIPS, Femto+</div>
+        <div class="feature"><b>Primary Memory:</b> Unknown</div>
+        <div class="feature"><b>Secondary Memory:</b> New Storage Tech</div>
+        <div class="feature"><b>Language:</b> Natural Language</div>
+        <div class="feature"><b>Cost:</b> Unknown</div>
+        <div class="feature"><b>Heat & Power:</b> Unknown</div>
+        <div class="feature"><b>Capability:</b> Much Higher</div>
+        <div class="feature"><b>Examples:</b> Unknown</div>
+    </div>
+</div>
+
+<script>
+// Mouse position
+let mouseX = 0, mouseY = 0;
+document.addEventListener('mousemove', (e) => {
+    mouseX = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
+    mouseY = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
+});
+
+// Smooth infinite carousel
+const carousel = document.getElementById("carousel");
+let scrollPos = 0;
+function scrollCarousel() {
+    scrollPos += 0.5;
+    if (scrollPos >= carousel.scrollWidth - carousel.clientWidth) scrollPos = 0;
+    carousel.scrollTo({ left: scrollPos, behavior: "auto" });
+    requestAnimationFrame(scrollCarousel);
+}
+requestAnimationFrame(scrollCarousel);
+
+// Nebula background
+const canvas = document.getElementById("nebula");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const stars = [];
+for (let i = 0; i < 120; i++) {
+    stars.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 3,
+        alpha: Math.random()
+    });
+}
+
+function drawNebula() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    stars.forEach(star => {
+        star.alpha += (Math.random() - 0.5) * 0.02;
+        star.alpha = Math.min(Math.max(star.alpha,0),1);
+        const parallaxX = star.x + mouseX * 40;
+        const parallaxY = star.y + mouseY * 40;
+        ctx.fillStyle = `rgba(255,0,255,${star.alpha})`;
+        ctx.beginPath();
+        ctx.arc(parallaxX, parallaxY, star.size, 0, Math.PI*2);
+        ctx.fill();
+    });
+    requestAnimationFrame(drawNebula);
+}
+requestAnimationFrame(drawNebula);
+
+// Floating orbs
+const orbs = document.querySelectorAll('.orb');
+orbs.forEach((orb) => {
+    const startX = parseFloat(orb.style.left) / 100 * window.innerWidth;
+    const startY = parseFloat(orb.style.top) / 100 * window.innerHeight;
+    const amplitudeX = 50 + Math.random() * 30;
+    const amplitudeY = 50 + Math.random() * 30;
+    const speed = 0.002 + Math.random() * 0.002;
+    let phase = Math.random() * Math.PI * 2;
+
+    function animateOrb() {
+        phase += speed;
+        const x = startX + amplitudeX * Math.sin(phase) + mouseX * 30;
+        const y = startY + amplitudeY * Math.cos(phase) + mouseY * 30;
+        orb.style.transform = `translate(${x}px, ${y}px)`;
+        requestAnimationFrame(animateOrb);
+    }
+    animateOrb();
+});
+
+// Card tilt effect
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = -(y - centerY) / 20;
+        const rotateY = (x - centerX) / 20;
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.06)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+</script>
+
+
+</body>
+<div class="teleportation">
+    <a href="genofcomp.html"> Get Back</a>
+    
+</div>
+</html>
